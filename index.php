@@ -11,6 +11,7 @@ include_once("koneksi/koneksi.php");
 </head>
 
 <body>
+  <div><a href="formSewa.php">Tambah Data</a></div>
   <table border=1>
     <tr>
       <th>No</th>
@@ -30,15 +31,15 @@ include_once("koneksi/koneksi.php");
     $no = 1;
     //mysqli_fetch_array digunakan untuk mengeluarkan isi dari database
     while ($row = mysqli_fetch_array($query)) {
-      $tanggalSelesai = date('Y.m.d', strtotime($row['tanggalSewa'] . "+ $row[durasi] days ")) ?>
+      $tanggalSelesai = date('Y.m.d', strtotime($row['tanggal_sewa'] . "+ $row[durasi] days ")) ?>
       <tr>
         <td><?= "$no" ?></td>
-        <td><?= "$row[namaBuku]" ?></td>
+        <td><?= "$row[judul]" ?></td>
         <td><?= "$row[penyewa]" ?></td>
-        <td><?= "$row[tanggalSewa]" ?></td>
+        <td><?= "$row[tanggal_sewa]" ?></td>
         <td><?= "$row[durasi]" ?></td>
         <td><?= "$tanggalSelesai" ?></td>
-        <td>&nbsp;</td>
+        <td><a href="formEdit.php?id=<?= "$row[id]" ?>">Edit | <a href="proses/delete.php?id=<?= "$row[id]" ?>">Delete</a></a></td>
       </tr>
 
     <?php

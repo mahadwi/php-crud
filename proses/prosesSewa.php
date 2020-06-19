@@ -7,7 +7,7 @@ $durasi = $_POST['durasi'];
 $tanggalSewa = date('Y.m.d');
 
 //masukan ke database
-$insert = "INSERT INTO sewa (namaBuku, penyewa, durasi, tanggalSewa) VALUES ('$namaBuku', '$penyewa', '$durasi', '$tanggalSewa')";
+$insert = "INSERT INTO sewa (judul, penyewa, tanggal_sewa, durasi) VALUES ('$namaBuku', '$penyewa', '$tanggalSewa', '$durasi')";
 $query = mysqli_query($koneksi, $insert);
 // var_dump($query);
 
